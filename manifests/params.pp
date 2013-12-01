@@ -16,6 +16,7 @@ class solr::params {
 
   $solr_home                     = '/usr/share/solr'
   $jetty_home                    = '/usr/share/jetty'
+  $jetty_port                    = '8080'
 
   $filename_template             = 'solr-<%= @solr_version -%>'
   $archive_template              = '<%= @filename -%>.tgz'

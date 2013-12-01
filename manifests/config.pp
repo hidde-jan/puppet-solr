@@ -18,6 +18,7 @@ class solr::config(
   $core_conf_ignore              = $solr::params::core_conf_ignore,
   $core_conf_example_dir         = $solr::params::core_conf_example_dir,
   $jetty_home                    = $solr::params::jetty_home,
+  $jetty_port                    = $solr::params::jetty_port,
   $solr_home                     = $solr::params::solr_home,
   $solr_version                  = $solr::params::solr_version,
   $filename_template             = $solr::params::filename_template,
@@ -29,7 +30,7 @@ class solr::config(
   #Copy the jetty config file
   file { '/etc/default/jetty':
     ensure  => file,
-    source  => 'puppet:///modules/solr/jetty-default',
+    content  => template('solr/jetty-default.erb'),
     require => Package['jetty'],
   }
 
